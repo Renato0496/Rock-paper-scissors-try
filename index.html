@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <script>
+        let sc = 0;
+        let sh = 0;
+        function computerPlay () {
+            let options = new Array('Rock','Paper','Scissors');
+            let alea = Math.floor(Math.random()*options.length);
+            let klk = options[alea];
+            return(klk)
+        }
+        function round (playerSelection,computerSelection) {
+            let a = playerSelection.toUpperCase();
+            let b = computerSelection.toUpperCase();
+            if (((a==='PAPER')&&(b==='ROCK'))||((a==='ROCK')&&(b==='SCISSORS'))||((a==='SCISSORS')&&(b==='PAPER'))) {
+                sh++;
+                alert ('You Win! Because '+a+' beats '+b+'. Nice!');
+                return ('You Win! Because '+a+' beats '+b+'. Nice!');
+            } else if (a===b) {
+                alert ('It\'s a tie');
+                return ('It\'s a tie');
+            } else if (((b==='PAPER')&&(a==='ROCK'))||((b==='ROCK')&&(a==='SCISSORS'))||((b==='SCISSORS')&&(a==='PAPER'))){
+                sc++;
+                alert('You Lose! Because '+b+' beats '+a+'. Oh no :(');
+                return ('You Lose! Because '+b+' beats '+a+'. Oh no :(')
+            } else {
+                alert('C\'mon dude, what are you doing?');
+                return('C\'mon dude, what are you doing?');
+            }
+        }
+        function game () {
+            let text = '';
+            for (let i=1; i<=5 ; i++){
+                let playerSelection = prompt ('Rock, paper or scissors?');
+                let computerSelection = computerPlay();
+                alert('Computer selection: '+computerSelection);
+                text += ('ROUND ' +i.toString()+': '+round(playerSelection,computerSelection))+'\n';
+            }
+            alert(text+'The final score is: HUMAN '+sh.toString()+' VS '+sc.toString()+' COMPUTER');
+            return(text+'The final score is: HUMAN '+sh.toString()+' VS '+sc.toString()+' COMPUTER');
+        }
+        game ();
+    </script>
+</html>
