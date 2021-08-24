@@ -2,31 +2,31 @@
 <html>
     <meta charset="utf-8">
     <script>
-        let sc = 0;
-        let sh = 0;
+        let computerScore = 0;
+        let humanScore = 0;
         function computerPlay () {
             let options = new Array('Rock','Paper','Scissors');
             let alea = Math.floor(Math.random()*options.length);
-            let klk = options[alea];
-            return(klk)
+            let optionSelected = options[alea];
+            return(optionSelected)
         }
         function round (playerSelection,computerSelection) {
             let a = playerSelection.toUpperCase();
             let b = computerSelection.toUpperCase();
             if (((a==='PAPER')&&(b==='ROCK'))||((a==='ROCK')&&(b==='SCISSORS'))||((a==='SCISSORS')&&(b==='PAPER'))) {
-                sh++;
+                humanScore++;
                 alert ('You Win! Because '+a+' beats '+b+'. Nice!');
                 return ('You Win! Because '+a+' beats '+b+'. Nice!');
             } else if (a===b) {
                 alert ('It\'s a tie');
                 return ('It\'s a tie');
             } else if (((b==='PAPER')&&(a==='ROCK'))||((b==='ROCK')&&(a==='SCISSORS'))||((b==='SCISSORS')&&(a==='PAPER'))){
-                sc++;
+                computerScore++;
                 alert('You Lose! Because '+b+' beats '+a+'. Oh no :(');
                 return ('You Lose! Because '+b+' beats '+a+'. Oh no :(')
             } else {
-                alert('C\'mon dude, what are you doing?');
-                return('C\'mon dude, what are you doing?');
+                alert('C\'mon dude, what are you doing?. Invalid round...');
+                return('C\'mon dude, what are you doing?. Invalid round...');
             }
         }
         function game () {
@@ -37,8 +37,8 @@
                 alert('Computer selection: '+computerSelection);
                 text += ('ROUND ' +i.toString()+': '+round(playerSelection,computerSelection))+'\n';
             }
-            alert(text+'The final score is: HUMAN '+sh.toString()+' VS '+sc.toString()+' COMPUTER');
-            return(text+'The final score is: HUMAN '+sh.toString()+' VS '+sc.toString()+' COMPUTER');
+            alert(text+'The final score is: HUMAN '+humanScore.toString()+' VS '+computerScore.toString()+' COMPUTER');
+            return(text+'The final score is: HUMAN '+humanScore.toString()+' VS '+computerScore.toString()+' COMPUTER');
         }
         game ();
     </script>
