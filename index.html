@@ -1,45 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="utf-8">
-    <script>
-        let computerScore = 0;
-        let humanScore = 0;
-        function computerPlay () {
-            let options = new Array('Rock','Paper','Scissors');
-            let alea = Math.floor(Math.random()*options.length);
-            let optionSelected = options[alea];
-            return(optionSelected)
-        }
-        function round (playerSelection,computerSelection) {
-            let a = playerSelection.toUpperCase();
-            let b = computerSelection.toUpperCase();
-            if (((a==='PAPER')&&(b==='ROCK'))||((a==='ROCK')&&(b==='SCISSORS'))||((a==='SCISSORS')&&(b==='PAPER'))) {
-                humanScore++;
-                alert ('You Win! Because '+a+' beats '+b+'. Nice!');
-                return ('You Win! Because '+a+' beats '+b+'. Nice!');
-            } else if (a===b) {
-                alert ('It\'s a tie');
-                return ('It\'s a tie');
-            } else if (((b==='PAPER')&&(a==='ROCK'))||((b==='ROCK')&&(a==='SCISSORS'))||((b==='SCISSORS')&&(a==='PAPER'))){
-                computerScore++;
-                alert('You Lose! Because '+b+' beats '+a+'. Oh no :(');
-                return ('You Lose! Because '+b+' beats '+a+'. Oh no :(')
-            } else {
-                alert('C\'mon dude, what are you doing?. Invalid round...');
-                return('C\'mon dude, what are you doing?. Invalid round...');
-            }
-        }
-        function game () {
-            let text = '';
-            for (let i=1; i<=5 ; i++){
-                let playerSelection = prompt ('Rock, paper or scissors?');
-                let computerSelection = computerPlay();
-                alert('Computer selection: '+computerSelection);
-                text += ('ROUND ' +i.toString()+': '+round(playerSelection,computerSelection))+'\n';
-            }
-            alert(text+'The final score is: HUMAN '+humanScore.toString()+' VS '+computerScore.toString()+' COMPUTER');
-            return(text+'The final score is: HUMAN '+humanScore.toString()+' VS '+computerScore.toString()+' COMPUTER');
-        }
-        game ();
-    </script>
+    <head>
+        <title>Rock, paper or scissors?</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div>
+            <h1>HUMAN VS COMPUTER</h1>
+            <h3>Are you ready?</h3>
+        </div>
+        <div>
+            <button class="btn" id="rock"><img class="chcImg" src='imgs/rock.png' alt="Choose ROCK"></button>
+            <button class="btn" id="paper"><img class="chcImg" src='imgs/paper.png' alt="Choose PAPER"></button>
+            <button class="btn" id="scissors"><img class="chcImg" src='imgs/scissors.png' alt="Choose SCISSORS"></button>
+        </div>    
+    </body>
+    <script src="script.js"></script>
 </html>
